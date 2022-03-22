@@ -12,7 +12,7 @@ const Homes = (sequelize, DataTypes) => {
         date: { type: DataTypes.STRING, allowNull: false },
         price: { type: DataTypes.STRING, allowNull: false },
         status: { type: DataTypes.ENUM('pending', 'rejected',"approved"),defaultValue: "pending" },
-        ownernumber: { type: DataTypes.INTEGER, allowNull: false },
+        ownernumber: { type: DataTypes.STRING, allowNull: false },
         token: {
             type: DataTypes.VIRTUAL,
         },
