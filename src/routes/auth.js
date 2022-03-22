@@ -1,7 +1,7 @@
 'use strict'
 const express = require('express');
 const { user } = require('../models/index');
-const { car } = require('../models/index');
+const { home } = require('../models/index');
 const router = express.Router();
 const bcrypt = require('bcrypt');
 const basicAuth = require('../auth/middleware/basickauth');
@@ -33,18 +33,11 @@ router.get('/getallhome', barearAuth, acl('read'), async (req, res) => {
     }
 })
 
-router.get('/getmycar', barearAuth, acl('car'), async (req, res) => {
+router.get('/getmyhome', barearAuth, acl('read'), async (req, res) => {
     const id = req.user.id
     let getRecords = await home.findAll({ where: { ownerId: id } });
     res.status(201).json(getRecords);
 })
-// router.get('/getcustomercar', barearAuth, acl('read'), async (req, res) => {
-//     const id = req.user.id
-//     let recordId = await user.findOne({ where: { id } })
-//     let getRecords = await car.findAll({ where: { takenId: recordId.username } });
-//     res.status(201).json(getRecords);
-// })
-
 
 router.post('/addhome', barearAuth, acl('create'), async (req, res) => {
     try {
@@ -64,7 +57,7 @@ router.put('/updatehome/:id', barearAuth, acl('update'), async (req, res) => {
     console.log(req.body);
     let recordObj = req.body
     let id = req.params.id
-    let recordId = await car.findOne({ where: { id } })
+    let recordId = await home.findOne({ where: { id } })
     let updateRecord = await recordId.update(recordObj);
     res.status(201).json(updateRecord);
 })
