@@ -6,7 +6,7 @@ require('dotenv').config()
 
 const Homes = (sequelize, DataTypes) => {
     const homeModule = sequelize.define('home', {
-        ownerId:{ type: DataTypes.STRING, allowNull: false },
+        ownerId:{ type: DataTypes.INTEGER, allowNull: false },
         flore: { type: DataTypes.STRING, allowNull: false },
         adress: { type: DataTypes.STRING, allowNull: false },
         date: { type: DataTypes.STRING, allowNull: false },
