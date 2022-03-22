@@ -1,0 +1,25 @@
+{
+  "development": {
+    "adapter": "sequelize",
+    "url": "postgres://localhost/my_addon_database",
+    "username": "khalidsy90",
+    "password": "root",
+    "database": "authapi",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "username",
+    "password": "password",
+    "database": "authapi",
+    "host": "127.0.0.1",
+    "dialect": "sqlite:memory:"
+  },
+  "production": {
+    "username": "username",
+    "password": "password",
+    "database": "authapi",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}
